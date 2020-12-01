@@ -1,1 +1,82 @@
-<p>nembargo works!</p>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" formControlName="filtro" #input>
+  </mat-form-field>
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <!-- reolucion_no Column -->
+    <ng-container matColumnDef="reolucion_no">
+      <th mat-header-cell *matHeaderCellDef>No. Resolución</th>
+      <td mat-cell *matCellDef="let element"> {{element.reolucion_no}} </td>
+    </ng-container>
+  
+    <!-- cdt Column -->
+    <ng-container matColumnDef="cdt">
+      <th mat-header-cell *matHeaderCellDef> CDT </th>
+      <td mat-cell *matCellDef="let element"> {{element.cdt}} </td>
+    </ng-container>
+  
+    <!-- fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+    </ng-container>
+  
+    <!-- matricula Column -->
+    <ng-container matColumnDef="matricula">
+      <th mat-header-cell *matHeaderCellDef> Matricula </th>
+      <td mat-cell *matCellDef="let element"> {{element.matricula}} </td>
+    </ng-container>
+
+    <!-- referencia_catastral Column -->
+    <ng-container matColumnDef="referencia_catastral">
+      <th mat-header-cell *matHeaderCellDef> Ref. catastral </th>
+      <td mat-cell *matCellDef="let element"> {{element.referencia_catastral}} </td>
+    </ng-container>
+
+     <!-- propietario Column -->
+     <ng-container matColumnDef="propietario">
+        <th mat-header-cell *matHeaderCellDef> Propietario </th>
+        <td mat-cell *matCellDef="let element"> {{element.propietario}} </td>
+      </ng-container>    
+
+    <!-- vigencias Column -->
+    <ng-container matColumnDef="vigencias">
+        <th mat-header-cell *matHeaderCellDef> Vigencias </th>
+        <td mat-cell *matCellDef="let element"> {{element.vigencias}} </td>
+      </ng-container>
+    
+    <!-- valor Column -->
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef> Valor </th>
+      <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+    </ng-container>
+
+    
+
+    <!-- Accion Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-flat-button color="accent" (click)="onEdit(element)">
+        Editar
+        <mat-icon>edit</mat-icon>
+      </button>&nbsp;
+      <button mat-flat-button color="warn" (click)="onDelete(element.id)"> 
+        Borrar
+        <mat-icon>delete</mat-icon>
+      </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+    
+  </table>
+

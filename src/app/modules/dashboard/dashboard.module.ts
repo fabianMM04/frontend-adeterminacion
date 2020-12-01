@@ -12,6 +12,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { RconvenioComponent } from './components/rconvenio/rconvenio.component';
 import { NembargoComponent } from './components/nembargo/nembargo.component';
@@ -23,9 +25,10 @@ import { ScontribuyenteComponent } from './components/scontribuyente/scontribuye
 import { SarchivoComponent } from './components/sarchivo/sarchivo.component';
 import { SabogadoComponent } from './components/sabogado/sabogado.component';
 
-
+import { RconvenioService} from '../../services/rconvenio.service';
+import { MandamientopagoformComponent } from './components/mandamientopagoform/mandamientopagoform.component';
 @NgModule({
-  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent],
+  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -37,7 +40,11 @@ import { SabogadoComponent } from './components/sabogado/sabogado.component';
     MatListModule,
     MatFormFieldModule,
     MatTableModule,
-    MatInputModule
-  ]
+    MatInputModule,
+    ReactiveFormsModule,
+    MatDialogModule
+  ],
+  providers: [RconvenioService],
+  entryComponents:[MandamientopagoformComponent]
 })
 export class DashboardModule { }

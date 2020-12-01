@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { RconvenioService } from '../../../../services/rconvenio.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -28,13 +29,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./rconvenio.component.css']
 })
 export class RconvenioComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'actions'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  displayedColumns: string[] = ['reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions'];
+  dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
-  constructor() { }
+  constructor( private rconvenioService: RconvenioService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    this.rconvenioService.list_rconvenio().subscribe( 
+      res => {
+        this.dataSource.data = res.resolucionconvenio;
+    }, error => {
+      console.log(<any> error);
+    }
+    
+    );
   }
   initForm(){
     this.formGroup = new FormGroup({
@@ -44,5 +55,20 @@ export class RconvenioComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onEdit(element){
+
+  }
+
+  onDelete(id:string){
+    console.log("id:", id)
+    this.rconvenioService.delete_rconvenio(id).subscribe(
+      resp => {
+        console.log(resp)
+        this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+        this.router.navigate(["/menu/rconvenio"]));
+      }
+    );
   }
 }
