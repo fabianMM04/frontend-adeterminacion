@@ -10,6 +10,19 @@ import { SEARCH } from "./global";
 })
 export class NembargoService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    reolucion_no: '',
+    cdt: '',
+    fecha: '',
+    matricula: '',
+    referencia_catastral: '',
+    propietario: '',
+    vigencias: '',
+    valor: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ScontribuyenteService } from '../../../../services/scontribuyente.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ScontribuyenteformComponent } from '../scontribuyenteform/scontribuyenteform.component';
 @Component({
   selector: 'app-scontribuyente',
   templateUrl: './scontribuyente.component.html',
@@ -10,13 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class ScontribuyenteComponent implements OnInit {
 
-  displayedColumns: string[] = ['ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions'];
+  displayedColumns: string[] = ['ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private scontribuyenteService: ScontribuyenteService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.scontribuyenteService.list_scontribuyente().subscribe( 
@@ -40,7 +43,11 @@ export class ScontribuyenteComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.scontribuyenteService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -52,5 +59,28 @@ export class ScontribuyenteComponent implements OnInit {
         this.router.navigate(["/menu/scontribuyente"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(ScontribuyenteformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.scontribuyenteService.selected._id = null;
+    this.scontribuyenteService.selected.ciudad = '';
+    this.scontribuyenteService.selected.fecha = '';
+    this.scontribuyenteService.selected.propietario = '';
+    this.scontribuyenteService.selected.referencia_catastral = '';
+    this.scontribuyenteService.selected.vigencias = '';
+    this.scontribuyenteService.selected.matricula = '';
+    this.scontribuyenteService.selected.notificacion = '';
+    this.scontribuyenteService.selected.codigo_no = '';
+
   }
 }

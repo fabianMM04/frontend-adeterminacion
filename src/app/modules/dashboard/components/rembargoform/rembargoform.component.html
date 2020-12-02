@@ -1,0 +1,36 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="rembargoformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="reolucion_no" formControlName="reolucion_no" value="{{ this.rembargoSerive.selected.reolucion_no}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.rembargoSerive.selected.no_expediente}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.rembargoSerive.selected.fecha}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.rembargoSerive.selected.propietario}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="cedula" formControlName="cedula" value="{{ this.rembargoSerive.selected.cedula}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.rembargoSerive.selected.referencia_catastral}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.rembargoSerive.selected.direccion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.rembargoSerive.selected.matricula}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="valor" formControlName="valor" value="{{ this.rembargoSerive.selected.valor}}">
+        </mat-form-field>
+       
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

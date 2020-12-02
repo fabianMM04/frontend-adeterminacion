@@ -43,6 +43,7 @@ export class MandamientopagoComponent implements OnInit {
   }
 
   onEdit(element){
+    this.resetForm();
     this.openForm();
     if(element) {
       this.mandamientoPagoService.selected = element;
@@ -68,6 +69,22 @@ export class MandamientopagoComponent implements OnInit {
     dialogConfig.autoFocus = true;
     
     this.dialog.open(MandamientopagoformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.mandamientoPagoService.selected._id = null;
+    this.mandamientoPagoService.selected.cdt = '';
+    this.mandamientoPagoService.selected.ciudad = '';
+    this.mandamientoPagoService.selected.direccion = '';
+    this.mandamientoPagoService.selected.fecha = '';
+    this.mandamientoPagoService.selected.mandamiento_no = '';
+    this.mandamientoPagoService.selected.no_expediente = '';
+    this.mandamientoPagoService.selected.notificacion = '';
+    this.mandamientoPagoService.selected.propietario = '';
+    this.mandamientoPagoService.selected.referencia_catastral = '';
+    this.mandamientoPagoService.selected.reolucion_no = '';
+    this.mandamientoPagoService.selected.valor = '';
+    this.mandamientoPagoService.selected.vigencias = '';
   }
 
 }

@@ -10,6 +10,19 @@ import { SEARCH } from "./global";
 })
 export class RunoydosService {
   public url: string;
+  public selected = {
+    _id: null,
+    reolucion_no: '',
+    propietario: '',
+    referencia_catastral: '',
+    no_expediente: '',
+    fecha: '',
+    direccion: '',
+    ciudad: '',
+    vigencias: '',
+    matricula: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

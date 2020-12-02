@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RconvenioService } from '../../../../services/rconvenio.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { RconvenioformComponent } from '../rconvenioform/rconvenioform.component';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -29,13 +31,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./rconvenio.component.css']
 })
 export class RconvenioComponent implements OnInit {
-  displayedColumns: string[] = ['reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions'];
+  displayedColumns: string[] = ['reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private rconvenioService: RconvenioService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.rconvenioService.list_rconvenio().subscribe( 
@@ -58,7 +61,11 @@ export class RconvenioComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.rconvenioService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -70,5 +77,31 @@ export class RconvenioComponent implements OnInit {
         this.router.navigate(["/menu/rconvenio"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(RconvenioformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.rconvenioService.selected._id = null;
+    this.rconvenioService.selected.reolucion_facilidad = '';
+    this.rconvenioService.selected.propietario = '';
+    this.rconvenioService.selected.no_expediente = '';
+    this.rconvenioService.selected.cedula = '';
+    this.rconvenioService.selected.referencia_catastral = '';
+    this.rconvenioService.selected.valor = '';
+    this.rconvenioService.selected.vigencias = '';
+    this.rconvenioService.selected.no_cuotas = '';
+    this.rconvenioService.selected.pagare_no = '';
+    this.rconvenioService.selected.notificacion = '';
+    this.rconvenioService.selected.ciudad = '';
+
   }
 }

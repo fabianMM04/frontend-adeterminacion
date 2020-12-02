@@ -1,0 +1,33 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="scontribuyenteformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.scontribuyenteSerive.selected.ciudad}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.scontribuyenteSerive.selected.fecha}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.scontribuyenteSerive.selected.propietario}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.scontribuyenteSerive.selected.referencia_catastral}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.scontribuyenteSerive.selected.vigencias}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.scontribuyenteSerive.selected.matricula}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.scontribuyenteSerive.selected.notificacion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="codigo_no" formControlName="codigo_no" value="{{ this.scontribuyenteSerive.selected.codigo_no}}">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

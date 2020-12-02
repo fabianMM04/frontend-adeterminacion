@@ -3,7 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RunoydosService } from '../../../../services/runoydos.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { RunoydosformComponent } from '../runoydosform/runoydosform.component';
 @Component({
   selector: 'app-runoydos',
   templateUrl: './runoydos.component.html',
@@ -11,13 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class RunoydosComponent implements OnInit {
 
-  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions'];
+  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private runoydosService: RunoydosService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.runoydosService.list_runoydos().subscribe( 
@@ -40,7 +42,11 @@ export class RunoydosComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.runoydosService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -52,6 +58,30 @@ export class RunoydosComponent implements OnInit {
         this.router.navigate(["/menu/runoydos"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(RunoydosformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.runoydosService.selected._id = null;
+    this.runoydosService.selected.reolucion_no = '';
+    this.runoydosService.selected.propietario = '';
+    this.runoydosService.selected.referencia_catastral = '';
+    this.runoydosService.selected.no_expediente = '';
+    this.runoydosService.selected.fecha = '';
+    this.runoydosService.selected.direccion = '';
+    this.runoydosService.selected.ciudad = '';
+    this.runoydosService.selected.vigencias = '';
+    this.runoydosService.selected.matricula = '';
+
   }
 
 }

@@ -1,0 +1,36 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="runoydosformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="reolucion_no" formControlName="reolucion_no" value="{{ this.runoydosSerive.selected.reolucion_no}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.runoydosSerive.selected.propietario}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.runoydosSerive.selected.referencia_catastral}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.runoydosSerive.selected.no_expediente}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.runoydosSerive.selected.fecha}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.runoydosSerive.selected.direccion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.runoydosSerive.selected.ciudad}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.runoydosSerive.selected.vigencias}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.runoydosSerive.selected.matricula}}">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

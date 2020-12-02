@@ -10,6 +10,19 @@ import { SEARCH } from "./global";
 })
 export class ScontribuyenteService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    ciudad: '',
+    fecha: '',
+    propietario: '',
+    referencia_catastral: '',
+    vigencias: '',
+    matricula: '',
+    notificacion: '',
+    codigo_no: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

@@ -1,0 +1,39 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="resolucionesformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="resolucion_no" formControlName="resolucion_no" value="{{ this.resolucionesSerive.selected.resolucion_no}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.resolucionesSerive.selected.no_expediente}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.resolucionesSerive.selected.referencia_catastral}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.resolucionesSerive.selected.direccion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.resolucionesSerive.selected.propietario}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="valor" formControlName="valor" value="{{ this.resolucionesSerive.selected.valor}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.resolucionesSerive.selected.vigencias}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.resolucionesSerive.selected.fecha}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.resolucionesSerive.selected.notificacion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.resolucionesSerive.selected.ciudad}}">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

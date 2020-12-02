@@ -10,6 +10,22 @@ import { SEARCH } from "./global";
 })
 export class RconvenioService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    reolucion_facilidad: '',
+    propietario: '',
+    no_expediente: '',
+    cedula: '',
+    referencia_catastral: '',
+    valor: '',
+    vigencias: '',
+    no_cuotas: '',
+    pagare_no: '',
+    notificacion: '',
+    ciudad: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

@@ -10,6 +10,17 @@ import { SEARCH } from "./global";
 })
 export class SabogadoService {
   public url: string;
+  public selected = {
+    _id: null,
+    odico_no: '',
+    ciudad: '',
+    fecha: '',
+    funcionario_archivo: '',
+    asunto: '',
+    referencia_catastral: '',
+    abogado_solicitante: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

@@ -10,6 +10,20 @@ import { SEARCH } from "./global";
 })
 export class RembargoService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    reolucion_no: '',
+    no_expediente: '',
+    fecha: '',
+    propietario: '',
+    cedula: '',
+    referencia_catastral: '',
+    direccion: '',
+    matricula: '',
+    valor: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

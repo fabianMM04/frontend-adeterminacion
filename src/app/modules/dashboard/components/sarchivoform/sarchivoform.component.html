@@ -1,0 +1,30 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="sarchivoformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="odico_no" formControlName="odico_no" value="{{ this.sarchivoSerive.selected.odico_no}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.sarchivoSerive.selected.ciudad}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.sarchivoSerive.selected.fecha}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="asunto" formControlName="asunto" value="{{ this.sarchivoSerive.selected.asunto}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="abogado_solicitante" formControlName="abogado_solicitante" value="{{ this.sarchivoSerive.selected.abogado_solicitante}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="afuncionario_archivo" formControlName="afuncionario_archivo" value="{{ this.sarchivoSerive.selected.afuncionario_archivo}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="expediente_no" formControlName="expediente_no" value="{{ this.sarchivoSerive.selected.expediente_no}}">
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

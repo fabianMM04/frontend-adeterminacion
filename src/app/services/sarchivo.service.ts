@@ -10,6 +10,18 @@ import { SEARCH } from "./global";
 })
 export class SarchivoService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    odico_no: '',
+    ciudad: '',
+    fecha: '',
+    asunto: '',
+    abogado_solicitante: '',
+    afuncionario_archivo: '',
+    expediente_no: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

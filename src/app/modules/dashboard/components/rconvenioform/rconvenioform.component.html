@@ -1,0 +1,41 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="rconvenioformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="reolucion_facilidad" formControlName="reolucion_facilidad" value="{{ this.rconvenioSerive.selected.reolucion_facilidad}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.rconvenioSerive.selected.propietario}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.rconvenioSerive.selected.no_expediente}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="cedula" formControlName="cedula" value="{{ this.rconvenioSerive.selected.cedula}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.rconvenioSerive.selected.referencia_catastral}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="valor" formControlName="valor" value="{{ this.rconvenioSerive.selected.valor}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.rconvenioSerive.selected.vigencias}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="no_cuotas" formControlName="no_cuotas" value="{{ this.rconvenioSerive.selected.no_cuotas}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="pagare_no" formControlName="pagare_no" value="{{ this.rconvenioSerive.selected.pagare_no}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.rconvenioSerive.selected.notificacion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.rconvenioSerive.selected.ciudad}}">
+        </mat-form-field>
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>

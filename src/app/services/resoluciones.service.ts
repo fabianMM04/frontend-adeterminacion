@@ -10,6 +10,20 @@ import { SEARCH } from "./global";
 })
 export class ResolucionService {
   public url: string;
+
+  public selected = {
+    _id: null,
+    resolucion_no: '',
+    referencia_catastral: '',
+    direccion: '',
+    propietario: '',
+    valor: '',
+    vigencias: '',
+    fecha: '',
+    notificacion: '',
+    ciudad: ''
+
+  };
   constructor(private http: HttpClient)
    { 
      this.url = SEARCH.url;

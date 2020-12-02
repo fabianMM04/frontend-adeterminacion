@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RembargoService } from '../../../../services/rembargo.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { RembargoformComponent } from '../rembargoform/rembargoform.component';
 @Component({
   selector: 'app-rembargo',
   templateUrl: './rembargo.component.html',
@@ -10,13 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class RembargoComponent implements OnInit {
 
-  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'propietario', 'cedula','referencia_catastral','direccion', 'matricula', 'valor', 'actions'];
+  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'propietario', 'cedula','referencia_catastral','direccion', 'matricula', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private rembargoService: RembargoService,
     private route: ActivatedRoute,
-     private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.rembargoService.list_rembargo().subscribe( 
@@ -39,7 +42,11 @@ export class RembargoComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.rembargoService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -51,6 +58,30 @@ export class RembargoComponent implements OnInit {
         this.router.navigate(["/menu/rembargo"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(RembargoformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.rembargoService.selected._id = null;
+    this.rembargoService.selected.reolucion_no = '';
+    this.rembargoService.selected.matricula = '';
+    this.rembargoService.selected.fecha = '';
+    this.rembargoService.selected.propietario = '';
+    this.rembargoService.selected.referencia_catastral = '';
+    this.rembargoService.selected.no_expediente = '';
+    this.rembargoService.selected.valor = '';
+    this.rembargoService.selected.cedula = '';
+    this.rembargoService.selected.direccion = '';
+
   }
 
 }

@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SarchivoService } from '../../../../services/sarchivo.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { SarchivoformComponent } from '../sarchivoform/sarchivoform.component';
 @Component({
   selector: 'app-sarchivo',
   templateUrl: './sarchivo.component.html',
@@ -10,13 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class SarchivoComponent implements OnInit {
 
-  displayedColumns: string[] = ['odico_no', 'ciudad', 'fecha', 'afuncionario_archivo', 'asunto', 'expediente_no', 'abogado_solicitante', 'actions'];
+  displayedColumns: string[] = ['odico_no', 'ciudad', 'fecha', 'afuncionario_archivo', 'asunto', 'expediente_no', 'abogado_solicitante', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private sarchivoService: SarchivoService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.sarchivoService.list_sarchivo().subscribe( 
@@ -40,7 +43,11 @@ export class SarchivoComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.sarchivoService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -52,6 +59,27 @@ export class SarchivoComponent implements OnInit {
         this.router.navigate(["/menu/sarchivo"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(SarchivoformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.sarchivoService.selected._id = null;
+    this.sarchivoService.selected.odico_no = '';
+    this.sarchivoService.selected.ciudad = '';
+    this.sarchivoService.selected.fecha = '';
+    this.sarchivoService.selected.asunto = '';
+    this.sarchivoService.selected.abogado_solicitante = '';
+    this.sarchivoService.selected.afuncionario_archivo = '';
+    this.sarchivoService.selected.expediente_no = '';
   }
 
 }

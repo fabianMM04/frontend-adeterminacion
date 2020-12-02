@@ -27,8 +27,16 @@ import { SabogadoComponent } from './components/sabogado/sabogado.component';
 
 import { RconvenioService} from '../../services/rconvenio.service';
 import { MandamientopagoformComponent } from './components/mandamientopagoform/mandamientopagoform.component';
+import { NembargoformComponent } from './components/nembargoform/nembargoform.component';
+import { RconvenioformComponent } from './components/rconvenioform/rconvenioform.component';
+import { RembargoformComponent } from './components/rembargoform/rembargoform.component';
+import { ResolucionesformComponent } from './components/resolucionesform/resolucionesform.component';
+import { RunoydosformComponent } from './components/runoydosform/runoydosform.component';
+import { SabogadoformComponent } from './components/sabogadoform/sabogadoform.component';
+import { SarchivoformComponent } from './components/sarchivoform/sarchivoform.component';
+import { ScontribuyenteformComponent } from './components/scontribuyenteform/scontribuyenteform.component';
 @NgModule({
-  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent],
+  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -45,6 +53,6 @@ import { MandamientopagoformComponent } from './components/mandamientopagoform/m
     MatDialogModule
   ],
   providers: [RconvenioService],
-  entryComponents:[MandamientopagoformComponent]
+  entryComponents:[MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent]
 })
 export class DashboardModule { }

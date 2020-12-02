@@ -3,6 +3,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { NembargoService } from '../../../../services/nembargo.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { NembargoformComponent } from '../nembargoform/nembargoform.component';
 @Component({
   selector: 'app-nembargo',
   templateUrl: './nembargo.component.html',
@@ -10,13 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class NembargoComponent implements OnInit {
 
-  displayedColumns: string[] = ['reolucion_no', 'cdt', 'fecha', 'matricula', 'referencia_catastral', 'propietario', 'vigencias', 'valor', 'actions'];
+  displayedColumns: string[] = ['reolucion_no', 'cdt', 'fecha', 'matricula', 'referencia_catastral', 'propietario', 'vigencias', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private nembargoService: NembargoService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.nembargoService.list_nembargo().subscribe( 
@@ -41,7 +44,11 @@ export class NembargoComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.nembargoService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -54,4 +61,28 @@ export class NembargoComponent implements OnInit {
       }
     );
   }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(NembargoformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.nembargoService.selected._id = null;
+    this.nembargoService.selected.cdt = '';
+    this.nembargoService.selected.matricula = '';
+    this.nembargoService.selected.fecha = '';
+    this.nembargoService.selected.propietario = '';
+    this.nembargoService.selected.referencia_catastral = '';
+    this.nembargoService.selected.reolucion_no = '';
+    this.nembargoService.selected.valor = '';
+    this.nembargoService.selected.vigencias = '';
+  }
+
+
 }

@@ -3,20 +3,22 @@ import {MatTableDataSource} from '@angular/material/table';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ResolucionService } from '../../../../services/resoluciones.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { ResolucionesformComponent } from '../resolucionesform/resolucionesform.component';
 @Component({
   selector: 'app-resoluciones',
   templateUrl: './resoluciones.component.html',
   styleUrls: ['./resoluciones.component.css']
 })
 export class ResolucionesComponent implements OnInit {
-  displayedColumns: string[] = ['resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions'];
+  displayedColumns: string[] = ['resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
   constructor( private resolucionService: ResolucionService,
     private route: ActivatedRoute,
-    private router: Router ) { }
+    private router: Router,
+    private dialog: MatDialog ) { }
 
   ngOnInit() {
     this.resolucionService.list_resolucion().subscribe( 
@@ -39,7 +41,11 @@ export class ResolucionesComponent implements OnInit {
   }
 
   onEdit(element){
-
+    this.resetForm();
+    this.openForm();
+    if(element) {
+      this.resolucionService.selected = element;
+    }
   }
 
   onDelete(id:string){
@@ -51,5 +57,29 @@ export class ResolucionesComponent implements OnInit {
         this.router.navigate(["/menu/resoluciones"]));
       }
     );
+  }
+
+  openForm(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      title: "modal"
+    };
+    dialogConfig.autoFocus = true;
+    
+    this.dialog.open(ResolucionesformComponent, dialogConfig);
+  }
+
+  resetForm(): void {
+    this.resolucionService.selected._id = null;
+    this.resolucionService.selected.resolucion_no = '';
+    this.resolucionService.selected.referencia_catastral = '';
+    this.resolucionService.selected.direccion = '';
+    this.resolucionService.selected.propietario = '';
+    this.resolucionService.selected.valor = '';
+    this.resolucionService.selected.vigencias = '';
+    this.resolucionService.selected.fecha = '';
+    this.resolucionService.selected.notificacion = '';
+    this.resolucionService.selected.ciudad = '';
+
   }
 }
