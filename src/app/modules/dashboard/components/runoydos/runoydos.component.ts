@@ -22,6 +22,16 @@ export class RunoydosComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
+    if( localStorage.getItem('user') == 'CONTRIBUYENTE'){
+      this.runoydosService.list_byuser_runoydos(localStorage.getItem('id')).subscribe( 
+        res => {
+          this.dataSource.data = res.runoydos;
+      }, error => {
+        console.log(<any> error);
+      }
+      
+      );
+  }else{
     this.runoydosService.list_runoydos().subscribe( 
       res => {
         this.dataSource.data = res.runoydos;
@@ -30,6 +40,7 @@ export class RunoydosComponent implements OnInit {
     }
     
     );
+  }
   }
   initForm(){
     this.formGroup = new FormGroup({

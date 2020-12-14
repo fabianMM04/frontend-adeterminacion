@@ -33,6 +33,7 @@ export class MandamientoPagoService {
    }
 
    add_mandamientopago(add_mandamientopago): Observable<any> {
+     add_mandamientopago.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_mandamientopago);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             
@@ -67,6 +68,14 @@ list_one_mandamientopago(mandamientopagoId): Observable<any>{
             
     });
     return this.http.get(this.url+'mandamientopago/'+mandamientopagoId, {headers:headers});
+}
+
+list_byuser_mandamientopago(userId): Observable<any>{
+
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json'
+          
+  });
+  return this.http.get(this.url+'mandamientopago/users/'+userId, {headers:headers});
 }
 
 

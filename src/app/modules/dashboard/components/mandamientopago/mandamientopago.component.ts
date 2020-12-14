@@ -22,6 +22,16 @@ export class MandamientopagoComponent implements OnInit {
      private dialog: MatDialog) { }
 
   ngOnInit() {
+    if( localStorage.getItem('user') == 'CONTRIBUYENTE'){
+    this.mandamientoPagoService.list_byuser_mandamientopago(localStorage.getItem('id')).subscribe( 
+      res => {
+        this.dataSource.data = res.mandamientopago;
+    }, error => {
+      console.log(<any> error);
+    }
+    
+    );
+  }else{
     this.mandamientoPagoService.list_mandamientopago().subscribe( 
       res => {
         this.dataSource.data = res.mandamientopago;
@@ -30,6 +40,8 @@ export class MandamientopagoComponent implements OnInit {
     }
     
     );
+  }
+
   }
 
   initForm(){

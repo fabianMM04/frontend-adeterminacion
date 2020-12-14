@@ -30,6 +30,7 @@ export class ResolucionService {
    }
 
    add_resolucion(add_resolucion): Observable<any> {
+    add_resolucion.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_resolucion);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             
@@ -66,6 +67,13 @@ list_one_resolucion(resolucionId): Observable<any>{
     return this.http.get(this.url+'resoluciones/'+resolucionId, {headers:headers});
 }
 
+list_byuser_resolucion(resolucionId): Observable<any>{
+
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json'
+          
+  });
+  return this.http.get(this.url+'resoluciones/users/'+resolucionId, {headers:headers});
+}
 
 delete_resolucion(resolucionId): Observable<any>{
 

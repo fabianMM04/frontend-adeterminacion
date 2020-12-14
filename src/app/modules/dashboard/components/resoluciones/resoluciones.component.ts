@@ -21,6 +21,16 @@ export class ResolucionesComponent implements OnInit {
     private dialog: MatDialog ) { }
 
   ngOnInit() {
+    if( localStorage.getItem('user') == 'CONTRIBUYENTE'){
+      this.resolucionService.list_byuser_resolucion(localStorage.getItem('id')).subscribe( 
+        res => {
+          this.dataSource.data = res.resolucion;
+      }, error => {
+        console.log(<any> error);
+      }
+      
+      );
+  }else{
     this.resolucionService.list_resolucion().subscribe( 
       res => {
         this.dataSource.data = res.resolucion;
@@ -29,6 +39,7 @@ export class ResolucionesComponent implements OnInit {
     }
     
     );
+  }
   }
   initForm(){
     this.formGroup = new FormGroup({

@@ -29,6 +29,7 @@ export class ScontribuyenteService {
    }
 
    add_scontribuyente(add_scontribuyente): Observable<any> {
+    add_scontribuyente.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_scontribuyente);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             
@@ -65,6 +66,13 @@ list_one_scontribuyente(scontribuyenteId): Observable<any>{
     return this.http.get(this.url+'scontribuyente/'+scontribuyenteId, {headers:headers});
 }
 
+list_byuser_scontribuyente(scontribuyenteId): Observable<any>{
+
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json'
+          
+  });
+  return this.http.get(this.url+'scontribuyente/users/'+scontribuyenteId, {headers:headers});
+}
 
 delete_scontribuyente(scontribuyenteId): Observable<any>{
 

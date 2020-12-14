@@ -22,14 +22,28 @@ export class ScontribuyenteComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.scontribuyenteService.list_scontribuyente().subscribe( 
-      res => {
-        this.dataSource.data = res.scontribuyente;
-    }, error => {
-      console.log(<any> error);
+
+    if( localStorage.getItem('user') == 'CONTRIBUYENTE'){
+      this.scontribuyenteService.list_byuser_scontribuyente(localStorage.getItem('id')).subscribe( 
+        res => {
+          this.dataSource.data = res.scontribuyente;
+      }, error => {
+        console.log(<any> error);
+      }
+      
+      );
+    }else{
+      this.scontribuyenteService.list_scontribuyente().subscribe( 
+        res => {
+          this.dataSource.data = res.scontribuyente;
+      }, error => {
+        console.log(<any> error);
+      }
+      
+      );
+
     }
     
-    );
   }
 
   initForm(){

@@ -29,6 +29,7 @@ export class RunoydosService {
    }
 
    add_runoydos(add_runoydos): Observable<any> {
+    add_runoydos.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_runoydos);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             
@@ -65,6 +66,13 @@ list_one_runoydos(runoydosId): Observable<any>{
     return this.http.get(this.url+'resolucionunoydos/'+runoydosId, {headers:headers});
 }
 
+list_byuser_runoydos(runoydosId): Observable<any>{
+
+  let headers = new HttpHeaders({ 'Content-Type': 'application/json'
+          
+  });
+  return this.http.get(this.url+'resolucionunoydos/users/'+runoydosId, {headers:headers});
+}
 
 delete_runoydos(runoydosId): Observable<any>{
 

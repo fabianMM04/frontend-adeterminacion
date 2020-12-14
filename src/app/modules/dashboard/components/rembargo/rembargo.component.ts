@@ -22,6 +22,16 @@ export class RembargoComponent implements OnInit {
     private dialog: MatDialog) { }
 
   ngOnInit() {
+    if( localStorage.getItem('user') == 'CONTRIBUYENTE'){
+    this.rembargoService.list_byuser_rembargo(localStorage.getItem('id')).subscribe( 
+      res => {
+        this.dataSource.data = res.rembargo;
+    }, error => {
+      console.log(<any> error);
+    }
+    
+    );
+  }else{
     this.rembargoService.list_rembargo().subscribe( 
       res => {
         this.dataSource.data = res.rembargo;
@@ -30,6 +40,7 @@ export class RembargoComponent implements OnInit {
     }
     
     );
+  }
   }
   initForm(){
     this.formGroup = new FormGroup({

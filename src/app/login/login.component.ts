@@ -9,6 +9,7 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   public token;
+  public user;
   formGroup: FormGroup;
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -30,7 +31,10 @@ export class LoginComponent implements OnInit {
         if( response.token){
           console.log("holi", response);
           this.token = response.token;
+          this.user = response.user;
           localStorage.setItem('token', this.token );
+          localStorage.setItem('user', this.user.tipo );
+          localStorage.setItem('id', this.user._id );
           this._router.navigate(['menu']);
         }
       })
