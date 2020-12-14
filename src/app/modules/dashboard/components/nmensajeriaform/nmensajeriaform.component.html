@@ -1,0 +1,24 @@
+<mat-dialog-content>
+    <form class="container" [formGroup]="nmensajeriaformGroup" (ngSubmit)="onSaveForm()">
+        
+        <mat-form-field>
+            <input matInput placeholder="empresa" formControlName="empresa" value="{{ this.nmensajeriaService.selected.empresa}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="nombre" formControlName="nombre" value="{{ this.nmensajeriaService.selected.nombre}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.nmensajeriaService.selected.direccion}}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="firma" formControlName="firma" value="{{ this.nmensajeriaService.selected.firma}}" >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="id" formControlName="id" value="{{ this.nmensajeriaService.selected.id}}">
+        </mat-form-field>
+        
+        <button mat-flat-button color="primary" type="submit">
+            <mat-icon>save</mat-icon>Guardar
+        </button>
+    </form>
+    </mat-dialog-content>
