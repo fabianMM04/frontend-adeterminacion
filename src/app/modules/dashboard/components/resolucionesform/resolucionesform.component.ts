@@ -64,6 +64,9 @@ export class ResolucionesformComponent implements OnInit {
     if (datos.ciudad == ""){
       delete datos['ciudad']
     }
+    if (datos.cedula == ""){
+      delete datos['cedula']
+    }
     
     this.resolucionesSerive.edit_resolucion(this.resolucionesSerive.selected._id, datos).subscribe(
       resp => {
@@ -87,7 +90,8 @@ export class ResolucionesformComponent implements OnInit {
       vigencias: new FormControl(''),
       fecha: new FormControl(''),
       notificacion: new FormControl(''),
-      ciudad: new FormControl('')
+      ciudad: new FormControl(''),
+      cedula: new FormControl('')
     })
   }
 

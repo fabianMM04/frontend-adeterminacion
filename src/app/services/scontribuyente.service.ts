@@ -20,7 +20,8 @@ export class ScontribuyenteService {
     vigencias: '',
     matricula: '',
     notificacion: '',
-    codigo_no: ''
+    codigo_no: '',
+    cedula: ''
 
   };
   constructor(private http: HttpClient)
@@ -29,7 +30,6 @@ export class ScontribuyenteService {
    }
 
    add_scontribuyente(add_scontribuyente): Observable<any> {
-    add_scontribuyente.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_scontribuyente);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             

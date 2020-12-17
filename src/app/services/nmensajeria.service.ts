@@ -8,7 +8,7 @@ import { SEARCH } from "./global";
 @Injectable({
   providedIn: 'root'
 })
-export class MandamientoPagoService {
+export class NmensajeriaService {
   public url: string;
   
   public selected = {
@@ -17,7 +17,8 @@ export class MandamientoPagoService {
     nombre: '',
     direccion: '',
     firma: '',
-    id: ''
+    id: '',
+    cedula: ''
   };
   constructor(private http: HttpClient)
    { 
@@ -25,7 +26,6 @@ export class MandamientoPagoService {
    }
 
    add_nmensajeria(add_nmensajeria): Observable<any> {
-     add_nmensajeria.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_nmensajeria);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             

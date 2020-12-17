@@ -61,6 +61,9 @@ export class RunoydosformComponent implements OnInit {
     if (datos.matricula == ""){
       delete datos['matricula']
     }
+    if (datos.cedula == ""){
+      delete datos['cedula']
+    }
     
     
     this.runoydosSerive.edit_runoydos(this.runoydosSerive.selected._id, datos).subscribe(
@@ -84,7 +87,9 @@ export class RunoydosformComponent implements OnInit {
       direccion: new FormControl(''),
       ciudad: new FormControl(''),
       vigencias: new FormControl(''),
-      matricula: new FormControl('')
+      matricula: new FormControl(''),
+      cedula: new FormControl('')
+
     })
   }
 

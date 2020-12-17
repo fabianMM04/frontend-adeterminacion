@@ -11,7 +11,7 @@ import { RunoydosformComponent } from '../runoydosform/runoydosform.component';
   styleUrls: ['./runoydos.component.css']
 })
 export class RunoydosComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -42,6 +42,11 @@ export class RunoydosComponent implements OnInit {
     );
   }
   }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
+  }
+
   initForm(){
     this.formGroup = new FormGroup({
       filtro: new FormControl(''),

@@ -11,6 +11,7 @@ import { ResolucionesformComponent } from '../resolucionesform/resolucionesform.
   styleUrls: ['./resoluciones.component.css']
 })
 export class ResolucionesComponent implements OnInit {
+  public identity;
   displayedColumns: string[] = ['resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -41,6 +42,11 @@ export class ResolucionesComponent implements OnInit {
     );
   }
   }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
+  }
+
   initForm(){
     this.formGroup = new FormGroup({
       filtro: new FormControl(''),

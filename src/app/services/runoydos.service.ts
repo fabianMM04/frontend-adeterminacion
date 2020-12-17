@@ -20,7 +20,8 @@ export class RunoydosService {
     direccion: '',
     ciudad: '',
     vigencias: '',
-    matricula: ''
+    matricula: '',
+    cedula: ''
 
   };
   constructor(private http: HttpClient)
@@ -29,7 +30,6 @@ export class RunoydosService {
    }
 
    add_runoydos(add_runoydos): Observable<any> {
-    add_runoydos.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_runoydos);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             

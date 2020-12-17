@@ -6,11 +6,11 @@
     <mat-toolbar> Menu</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/menu/rconvenio" *ngIf = "identity == 'ARCHIVO_DETERMINACION' ">RESOLUCION CONVENIOS</a>
-      <a mat-list-item routerLink="/menu/nembargo" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO'">NOTIFICACIÓN EMBARGO</a>
-      <a mat-list-item routerLink="/menu/mandamientopago" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE'">MANDAMIENTO PAGO RESOLUCIONES</a>
-      <a mat-list-item routerLink="/menu/resoluciones" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE'">RESOLUCIONES</a>
-      <a mat-list-item routerLink="/menu/runoydos" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE'">RESOLUCION 2001 - 2002</a>
-      <a mat-list-item routerLink="/menu/rembargo" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'BANCO'">RESOLUCION EMBARGO</a>
+      <a mat-list-item routerLink="/menu/nembargo" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'RECEPCIONISTA'">NOTIFICACIÓN EMBARGO</a>
+      <a mat-list-item routerLink="/menu/mandamientopago" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">MANDAMIENTO PAGO RESOLUCIONES</a>
+      <a mat-list-item routerLink="/menu/resoluciones" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">RESOLUCIONES</a>
+      <a mat-list-item routerLink="/menu/runoydos" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">RESOLUCION 2001 - 2002</a>
+      <a mat-list-item routerLink="/menu/rembargo" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'BANCO' || identity == 'RECEPCIONISTA'">RESOLUCION EMBARGO</a>
       <a mat-list-item routerLink="/menu/nmensajeria" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE'">NOTIFICACION MENSAJERIA</a>
       <a mat-list-item routerLink="/menu/scontribuyente" *ngIf = "identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">SOLICITUD CONTRIBUYENTE</a>
       <a mat-list-item routerLink="/menu/sabogado" *ngIf = "identity == 'RECEPCIONISTA' || identity == 'ABOGADO'">SOLICITUD ABOGADO</a>

@@ -11,7 +11,7 @@ import { ScontribuyenteformComponent } from '../scontribuyenteform/scontribuyent
   styleUrls: ['./scontribuyente.component.css']
 })
 export class ScontribuyenteComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -46,6 +46,10 @@ export class ScontribuyenteComponent implements OnInit {
     
   }
 
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
+  }
+
   initForm(){
     this.formGroup = new FormGroup({
       filtro: new FormControl(''),
@@ -57,7 +61,7 @@ export class ScontribuyenteComponent implements OnInit {
   }
 
   onEdit(element){
-    this.resetForm();
+    //this.resetForm();
     this.openForm();
     if(element) {
       this.scontribuyenteService.selected = element;

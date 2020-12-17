@@ -30,7 +30,6 @@ export class RembargoService {
    }
 
    add_rembargo(add_rembargo): Observable<any> {
-    add_rembargo.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_rembargo);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             

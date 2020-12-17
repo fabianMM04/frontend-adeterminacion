@@ -49,7 +49,9 @@ export class NmensajeriaformComponent implements OnInit {
     if (datos.id == ""){
       delete datos['id']
     }
-    
+    if (datos.cedula == ""){
+      delete datos['cedula']
+    }
     
     
     this.nmensajeriaService.edit_nmensajeria(this.nmensajeriaService.selected._id, datos).subscribe(
@@ -70,6 +72,8 @@ export class NmensajeriaformComponent implements OnInit {
       direccion: new FormControl(''),
       firma: new FormControl(''),
       id: new FormControl(''),
+      cedula: new FormControl(''),
+      
     })
   }
 

@@ -24,7 +24,8 @@ export class MandamientoPagoService {
     valor: '',
     cdt: '',
     mandamiento_no: '',
-    notificacion: ''
+    notificacion: '',
+    cedula: ''
 
   };
   constructor(private http: HttpClient)
@@ -33,7 +34,6 @@ export class MandamientoPagoService {
    }
 
    add_mandamientopago(add_mandamientopago): Observable<any> {
-     add_mandamientopago.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_mandamientopago);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             
@@ -75,6 +75,7 @@ list_byuser_mandamientopago(userId): Observable<any>{
   let headers = new HttpHeaders({ 'Content-Type': 'application/json'
           
   });
+  
   return this.http.get(this.url+'mandamientopago/users/'+userId, {headers:headers});
 }
 

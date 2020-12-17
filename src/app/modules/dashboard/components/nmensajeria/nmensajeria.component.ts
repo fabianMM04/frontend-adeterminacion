@@ -12,7 +12,7 @@ import { NmensajeriaformComponent } from '../nmensajeriaform/nmensajeriaform.com
   styleUrls: ['./nmensajeria.component.css']
 })
 export class NmensajeriaComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['empresa', 'nombre', 'direccion', 'firma', 'id','actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -43,6 +43,10 @@ export class NmensajeriaComponent implements OnInit {
     );
   }
 
+  }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
   }
 
   initForm(){

@@ -68,11 +68,11 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-flat-button color="accent" (click)="onEdit(element)">
+        <button mat-flat-button color="accent" (click)="onEdit(element)" *ngIf = "identity == 'ARCHIVO_DETERMINACION' ">
         Editar
         <mat-icon>edit</mat-icon>
       </button>&nbsp;
-      <button mat-flat-button color="warn" (click)="onDelete(element.id)" routerLink="/menu/scontribuyente">
+      <button mat-flat-button color="warn" (click)="onDelete(element.id)" routerLink="/menu/scontribuyente" *ngIf = "identity == 'ARCHIVO_DETERMINACION' ">
         Borrar
         <mat-icon>delete</mat-icon>
       </button>

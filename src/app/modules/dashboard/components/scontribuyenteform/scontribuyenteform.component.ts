@@ -59,6 +59,9 @@ export class ScontribuyenteformComponent implements OnInit {
     if (datos.codigo_no == ""){
       delete datos['codigo_no']
     }
+    if (datos.cedula == ""){
+      delete datos['cedula']
+    }
     
     
     this.scontribuyenteSerive.edit_scontribuyente(this.scontribuyenteSerive.selected._id, datos).subscribe(
@@ -81,7 +84,9 @@ export class ScontribuyenteformComponent implements OnInit {
       vigencias: new FormControl(''),
       matricula: new FormControl(''),
       notificacion: new FormControl(''),
-      codigo_no: new FormControl('')
+      codigo_no: new FormControl(''),
+      cedula: new FormControl('')
+
 
     })
   }

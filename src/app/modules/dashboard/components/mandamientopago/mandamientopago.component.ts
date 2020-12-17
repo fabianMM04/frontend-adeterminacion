@@ -11,7 +11,7 @@ import { MandamientopagoformComponent } from '../mandamientopagoform/mandamiento
   styleUrls: ['./mandamientopago.component.css']
 })
 export class MandamientopagoComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'direccion', 'ciudad', 'referencia_catastral', 'propietario', 'vigencias', 'valor','mandamiento_no', 'notificacion','actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -48,6 +48,10 @@ export class MandamientopagoComponent implements OnInit {
     this.formGroup = new FormGroup({
       filtro: new FormControl(''),
     })
+  }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

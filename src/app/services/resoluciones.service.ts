@@ -21,7 +21,8 @@ export class ResolucionService {
     vigencias: '',
     fecha: '',
     notificacion: '',
-    ciudad: ''
+    ciudad: '',
+    cedula: ''
 
   };
   constructor(private http: HttpClient)
@@ -30,7 +31,6 @@ export class ResolucionService {
    }
 
    add_resolucion(add_resolucion): Observable<any> {
-    add_resolucion.usuario = localStorage.getItem('id');
     let params = JSON.stringify(add_resolucion);
     let headers = new HttpHeaders({ 'Content-Type': 'application/json'
             

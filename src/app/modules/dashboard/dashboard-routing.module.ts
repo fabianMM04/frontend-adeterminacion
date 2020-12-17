@@ -10,6 +10,7 @@ import { RembargoComponent } from './components/rembargo/rembargo.component';
 import { ScontribuyenteComponent } from './components/scontribuyente/scontribuyente.component';
 import { SabogadoComponent } from './components/sabogado/sabogado.component';
 import { SarchivoComponent } from './components/sarchivo/sarchivo.component';
+import { NmensajeriaComponent } from './components/nmensajeria/nmensajeria.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'scontribuyente', component: ScontribuyenteComponent},
     {path: 'sabogado', component: SabogadoComponent},
     {path: 'sarchivo', component: SarchivoComponent},
+    {path: 'nmensajeria', component: NmensajeriaComponent},
     
   ]
 },

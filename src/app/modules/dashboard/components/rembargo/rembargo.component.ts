@@ -11,7 +11,7 @@ import { RembargoformComponent } from '../rembargoform/rembargoform.component';
   styleUrls: ['./rembargo.component.css']
 })
 export class RembargoComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'propietario', 'cedula','referencia_catastral','direccion', 'matricula', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
@@ -41,6 +41,10 @@ export class RembargoComponent implements OnInit {
     
     );
   }
+  }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
   }
   initForm(){
     this.formGroup = new FormGroup({

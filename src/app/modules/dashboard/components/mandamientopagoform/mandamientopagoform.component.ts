@@ -66,6 +66,9 @@ export class MandamientopagoformComponent implements OnInit {
     if (datos.vigencias == ""){
       delete datos['vigencias']
     }
+    if (datos.cedula == ""){
+      delete datos['cedula']
+    }
     
     this.mandamientopagoSerive.edit_mandamientopago(this.mandamientopagoSerive.selected._id, datos).subscribe(
       resp => {
@@ -91,6 +94,8 @@ export class MandamientopagoformComponent implements OnInit {
       valor: new FormControl(''),
       mandamiento_no: new FormControl(''),
       notificacion: new FormControl(''),
+      cedula: new FormControl(''),
+
     })
   }
 
