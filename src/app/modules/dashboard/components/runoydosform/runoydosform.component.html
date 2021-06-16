@@ -14,7 +14,7 @@
             <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.runoydosSerive.selected.no_expediente}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.runoydosSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.runoydosSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.runoydosSerive.selected.direccion}}">
@@ -23,7 +23,7 @@
             <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.runoydosSerive.selected.ciudad}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.runoydosSerive.selected.vigencias}}">
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.runoydosSerive.selected.vigencias |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.runoydosSerive.selected.matricula}}">

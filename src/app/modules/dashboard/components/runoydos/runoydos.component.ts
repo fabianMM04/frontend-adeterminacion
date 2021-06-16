@@ -12,7 +12,7 @@ import { RunoydosformComponent } from '../runoydosform/runoydosform.component';
 })
 export class RunoydosComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

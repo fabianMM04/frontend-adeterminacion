@@ -13,7 +13,7 @@ import { NmensajeriaformComponent } from '../nmensajeriaform/nmensajeriaform.com
 })
 export class NmensajeriaComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['empresa', 'nombre', 'direccion', 'firma', 'id','actions', 'new'];
+  displayedColumns: string[] = ['estado', 'empresa', 'nombre', 'direccion', 'firma', 'id','actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

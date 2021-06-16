@@ -12,7 +12,7 @@ import { ScontribuyenteformComponent } from '../scontribuyenteform/scontribuyent
 })
 export class ScontribuyenteComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions', 'new'];
+  displayedColumns: string[] = ['estado', 'ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

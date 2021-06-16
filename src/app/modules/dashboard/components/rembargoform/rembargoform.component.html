@@ -8,7 +8,7 @@
             <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.rembargoSerive.selected.no_expediente}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.rembargoSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.rembargoSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.rembargoSerive.selected.propietario}}">

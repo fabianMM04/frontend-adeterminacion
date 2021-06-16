@@ -20,7 +20,7 @@
             <input matInput placeholder="valor" formControlName="valor" value="{{ this.rconvenioSerive.selected.valor}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.rconvenioSerive.selected.vigencias}}">
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.rconvenioSerive.selected.vigencias |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="no_cuotas" formControlName="no_cuotas" value="{{ this.rconvenioSerive.selected.no_cuotas}}">

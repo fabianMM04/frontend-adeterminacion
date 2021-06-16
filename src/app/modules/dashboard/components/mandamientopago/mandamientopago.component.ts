@@ -12,7 +12,7 @@ import { MandamientopagoformComponent } from '../mandamientopagoform/mandamiento
 })
 export class MandamientopagoComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'direccion', 'ciudad', 'referencia_catastral', 'propietario', 'vigencias', 'valor','mandamiento_no', 'notificacion','actions', 'new'];
+  displayedColumns: string[] = ['estado', 'reolucion_no', 'no_expediente', 'fecha', 'direccion', 'ciudad', 'referencia_catastral', 'propietario', 'vigencias', 'valor','mandamiento_no', 'notificacion','actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

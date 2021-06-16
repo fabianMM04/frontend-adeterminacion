@@ -5,7 +5,7 @@
             <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.scontribuyenteSerive.selected.ciudad}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.scontribuyenteSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.scontribuyenteSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.scontribuyenteSerive.selected.propietario}}">
@@ -14,7 +14,7 @@
             <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.scontribuyenteSerive.selected.referencia_catastral}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.scontribuyenteSerive.selected.vigencias}}">
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.scontribuyenteSerive.selected.vigencias |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.scontribuyenteSerive.selected.matricula}}">

@@ -12,7 +12,7 @@ import { SarchivoformComponent } from '../sarchivoform/sarchivoform.component';
 })
 export class SarchivoComponent implements OnInit {
 
-  displayedColumns: string[] = ['odico_no', 'ciudad', 'fecha', 'afuncionario_archivo', 'asunto', 'expediente_no', 'abogado_solicitante', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'odico_no', 'ciudad', 'fecha', 'afuncionario_archivo', 'asunto', 'expediente_no', 'abogado_solicitante', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

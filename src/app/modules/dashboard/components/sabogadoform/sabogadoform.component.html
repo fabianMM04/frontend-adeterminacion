@@ -2,13 +2,13 @@
     <form class="container" [formGroup]="sabogadoformGroup" (ngSubmit)="onSaveForm()">
         
         <mat-form-field>
-            <input matInput placeholder="odico_no" formControlName="odico_no" value="{{ this.sabogadoSerive.selected.odico_no}}">
+            <input matInput placeholder="no. Oficio" formControlName="odico_no" value="{{ this.sabogadoSerive.selected.odico_no}}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.sabogadoSerive.selected.ciudad}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.sabogadoSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.sabogadoSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="funcionario_archivo" formControlName="funcionario_archivo" value="{{ this.sabogadoSerive.selected.funcionario_archivo}}">

@@ -20,10 +20,10 @@
             <input matInput placeholder="valor" formControlName="valor" value="{{ this.resolucionesSerive.selected.valor}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.resolucionesSerive.selected.vigencias}}">
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.resolucionesSerive.selected.vigencias |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.resolucionesSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.resolucionesSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.resolucionesSerive.selected.notificacion}}">

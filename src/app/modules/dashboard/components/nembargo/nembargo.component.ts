@@ -12,7 +12,7 @@ import { NembargoformComponent } from '../nembargoform/nembargoform.component';
 })
 export class NembargoComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['reolucion_no', 'cdt', 'fecha', 'matricula', 'referencia_catastral', 'propietario', 'vigencias', 'valor', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'reolucion_no', 'cdt', 'fecha', 'matricula', 'referencia_catastral', 'propietario', 'vigencias', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

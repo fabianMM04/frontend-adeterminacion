@@ -13,8 +13,8 @@
       <a mat-list-item routerLink="/menu/rembargo" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE' || identity == 'BANCO' || identity == 'RECEPCIONISTA'">RESOLUCION EMBARGO</a>
       <a mat-list-item routerLink="/menu/nmensajeria" *ngIf = "identity == 'ARCHIVO_DETERMINACION' || identity == 'ABOGADO' || identity == 'CONTRIBUYENTE'">NOTIFICACION MENSAJERIA</a>
       <a mat-list-item routerLink="/menu/scontribuyente" *ngIf = "identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">SOLICITUD CONTRIBUYENTE</a>
-      <a mat-list-item routerLink="/menu/sabogado" *ngIf = "identity == 'RECEPCIONISTA' || identity == 'ABOGADO'">SOLICITUD ABOGADO</a>
-      <a mat-list-item routerLink="/menu/sarchivo" *ngIf = "identity == 'RECEPCIONISTA' || identity == 'ARCHIVO_DETERMINACION'">SOLICITUD ARCHIVO</a>
+      <a mat-list-item routerLink="/menu/sabogado" *ngIf = "identity == 'ABOGADO'">SOLICITUD ABOGADO</a>
+      <a mat-list-item routerLink="/menu/sarchivo" *ngIf = "identity == 'ARCHIVO_DETERMINACION'">SOLICITUD ARCHIVO</a>
 
     </mat-nav-list>
   </mat-sidenav>

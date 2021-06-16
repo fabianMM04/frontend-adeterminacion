@@ -12,7 +12,7 @@ import { RembargoformComponent } from '../rembargoform/rembargoform.component';
 })
 export class RembargoComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['reolucion_no', 'no_expediente', 'fecha', 'propietario', 'cedula','referencia_catastral','direccion', 'matricula', 'valor', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'reolucion_no', 'no_expediente', 'fecha', 'propietario', 'cedula','referencia_catastral','direccion', 'matricula', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

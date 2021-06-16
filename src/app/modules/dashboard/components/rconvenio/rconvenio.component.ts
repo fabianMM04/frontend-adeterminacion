@@ -31,7 +31,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./rconvenio.component.css']
 })
 export class RconvenioComponent implements OnInit {
-  displayedColumns: string[] = ['reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

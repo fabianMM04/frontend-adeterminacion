@@ -8,7 +8,7 @@
             <input matInput placeholder="cdt" formControlName="cdt" value="{{ this.nembargoSerive.selected.cdt}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.nembargoSerive.selected.fecha}}">
+            <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.nembargoSerive.selected.fecha |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="matricula" formControlName="matricula" value="{{ this.nembargoSerive.selected.matricula}}">
@@ -20,7 +20,7 @@
             <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.nembargoSerive.selected.propietario}}">
         </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.nembargoSerive.selected.vigencias}}">
+            <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.nembargoSerive.selected.vigencias |  date:'short' }}">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="valor" formControlName="valor" value="{{ this.nembargoSerive.selected.valor}}">

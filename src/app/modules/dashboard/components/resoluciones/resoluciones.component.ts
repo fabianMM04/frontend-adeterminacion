@@ -12,7 +12,7 @@ import { ResolucionesformComponent } from '../resolucionesform/resolucionesform.
 })
 export class ResolucionesComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;

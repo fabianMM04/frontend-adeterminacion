@@ -12,7 +12,7 @@ import { SabogadoformComponent } from '../sabogadoform/sabogadoform.component';
 })
 export class SabogadoComponent implements OnInit {
 
-  displayedColumns: string[] = ['odico_no', 'ciudad', 'fecha', 'funcionario_archivo', 'asunto', 'referencia_catastral', 'abogado_solicitante', 'actions', 'new'];
+  displayedColumns: string[] = ['estado', 'odico_no', 'ciudad', 'fecha', 'funcionario_archivo', 'asunto', 'referencia_catastral', 'abogado_solicitante', 'actions', 'new'];
   dataSource = new MatTableDataSource();
 
   formGroup: FormGroup;
