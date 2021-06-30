@@ -15,6 +15,9 @@ export class NmensajeriaComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'empresa', 'nombre', 'direccion', 'firma', 'id','actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private nmensajeriaService: NmensajeriaService,
@@ -36,6 +39,9 @@ export class NmensajeriaComponent implements OnInit {
     this.nmensajeriaService.list_nmensajeria().subscribe( 
       res => {
         this.dataSource.data = res.nmensajeria;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }

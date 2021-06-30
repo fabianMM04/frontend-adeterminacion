@@ -21,6 +21,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { AuthGuard } from './services/authguard';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import {MatTableModule} from '@angular/material/table';
     MatPaginatorModule,
     MatTableModule
   ],
-  providers: [
+  providers: [AuthGuard,
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ],
   bootstrap: [AppComponent]

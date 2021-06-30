@@ -33,6 +33,9 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class RconvenioComponent implements OnInit {
   displayedColumns: string[] = ['estado', 'reolucion_facilidad', 'propietario', 'no_expediente', 'cedula', 'referencia_catastral', 'valor', 'vigencias', 'no_cuotas', 'pagare_no', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private rconvenioService: RconvenioService,
@@ -44,6 +47,9 @@ export class RconvenioComponent implements OnInit {
     this.rconvenioService.list_rconvenio().subscribe( 
       res => {
         this.dataSource.data = res.resolucionconvenio;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }

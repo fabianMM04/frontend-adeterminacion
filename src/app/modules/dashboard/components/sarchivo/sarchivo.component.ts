@@ -11,11 +11,15 @@ import { SarchivoformComponent } from '../sarchivoform/sarchivoform.component';
   styleUrls: ['./sarchivo.component.css']
 })
 export class SarchivoComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['estado', 'odico_no', 'ciudad', 'fecha', 'afuncionario_archivo', 'asunto', 'expediente_no', 'abogado_solicitante', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
+  
   constructor( private sarchivoService: SarchivoService,
     private route: ActivatedRoute,
     private router: Router,
@@ -25,12 +29,20 @@ export class SarchivoComponent implements OnInit {
     this.sarchivoService.list_sarchivo().subscribe( 
       res => {
         this.dataSource.data = res.sarchivo;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }
     
     );
   }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
+  }
+
 
   initForm(){
     this.formGroup = new FormGroup({

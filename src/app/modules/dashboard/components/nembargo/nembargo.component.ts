@@ -14,6 +14,9 @@ export class NembargoComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'reolucion_no', 'cdt', 'fecha', 'matricula', 'referencia_catastral', 'propietario', 'vigencias', 'valor', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private nembargoService: NembargoService,
@@ -25,6 +28,9 @@ export class NembargoComponent implements OnInit {
     this.nembargoService.list_nembargo().subscribe( 
       res => {
         this.dataSource.data = res.nembargo;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }

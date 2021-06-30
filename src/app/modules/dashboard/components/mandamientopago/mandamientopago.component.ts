@@ -14,6 +14,9 @@ export class MandamientopagoComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'reolucion_no', 'no_expediente', 'fecha', 'direccion', 'ciudad', 'referencia_catastral', 'propietario', 'vigencias', 'valor','mandamiento_no', 'notificacion','actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0;  
 
   formGroup: FormGroup;
   constructor( private mandamientoPagoService: MandamientoPagoService,
@@ -35,6 +38,9 @@ export class MandamientopagoComponent implements OnInit {
     this.mandamientoPagoService.list_mandamientopago().subscribe( 
       res => {
         this.dataSource.data = res.mandamientopago;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }

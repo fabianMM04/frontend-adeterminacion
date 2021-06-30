@@ -11,9 +11,12 @@ import { SabogadoformComponent } from '../sabogadoform/sabogadoform.component';
   styleUrls: ['./sabogado.component.css']
 })
 export class SabogadoComponent implements OnInit {
-
+  public identity;
   displayedColumns: string[] = ['estado', 'odico_no', 'ciudad', 'fecha', 'funcionario_archivo', 'asunto', 'referencia_catastral', 'abogado_solicitante', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private sabogadoService: SabogadoService,
@@ -25,11 +28,18 @@ export class SabogadoComponent implements OnInit {
     this.sabogadoService.list_sabogado().subscribe( 
       res => {
         this.dataSource.data = res.sabogado;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }
     
     );
+  }
+
+  ngDoCheck() {
+    this.identity = localStorage.getItem('user');
   }
 
   initForm(){

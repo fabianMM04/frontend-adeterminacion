@@ -14,6 +14,9 @@ export class RunoydosComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'reolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'matricula', 'vigencias', 'fecha', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private runoydosService: RunoydosService,
@@ -35,6 +38,9 @@ export class RunoydosComponent implements OnInit {
     this.runoydosService.list_runoydos().subscribe( 
       res => {
         this.dataSource.data = res.runoydos;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }

@@ -14,6 +14,9 @@ export class ScontribuyenteComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'ciudad', 'fecha', 'propietario', 'referencia_catastral', 'vigencias', 'matricula', 'notificacion', 'codigo_no','actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private scontribuyenteService: ScontribuyenteService,
@@ -36,6 +39,9 @@ export class ScontribuyenteComponent implements OnInit {
       this.scontribuyenteService.list_scontribuyente().subscribe( 
         res => {
           this.dataSource.data = res.scontribuyente;
+          this.activo = res.activos
+          this.cerrado = res.cerrados
+          this.total = res.total
       }, error => {
         console.log(<any> error);
       }

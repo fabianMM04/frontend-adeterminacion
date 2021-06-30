@@ -11,10 +11,12 @@ import { ScontribuyenteComponent } from './components/scontribuyente/scontribuye
 import { SabogadoComponent } from './components/sabogado/sabogado.component';
 import { SarchivoComponent } from './components/sarchivo/sarchivo.component';
 import { NmensajeriaComponent } from './components/nmensajeria/nmensajeria.component';
+import { AuthGuard } from '../../services/authguard';
 
 
 const routes: Routes = [
   {path: '', component: NavComponent,
+  canActivate: [AuthGuard],
   children: [
     {path: 'rconvenio', component: RconvenioComponent},
     {path: 'nembargo', component: NembargoComponent},

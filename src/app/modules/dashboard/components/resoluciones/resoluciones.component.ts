@@ -14,6 +14,9 @@ export class ResolucionesComponent implements OnInit {
   public identity;
   displayedColumns: string[] = ['estado', 'resolucion_no', 'no_expediente', 'referencia_catastral','direccion', 'propietario', 'valor', 'vigencias', 'fecha', 'notificacion', 'ciudad', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+  private activo = 0;
+  private cerrado = 0;
+  private total = 0; 
 
   formGroup: FormGroup;
   constructor( private resolucionService: ResolucionService,
@@ -35,6 +38,9 @@ export class ResolucionesComponent implements OnInit {
     this.resolucionService.list_resolucion().subscribe( 
       res => {
         this.dataSource.data = res.resolucion;
+        this.activo = res.activos
+        this.cerrado = res.cerrados
+        this.total = res.total
     }, error => {
       console.log(<any> error);
     }
