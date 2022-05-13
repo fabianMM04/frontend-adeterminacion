@@ -1,0 +1,83 @@
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium"  #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    
+
+    <!-- REF_CATASTRAL Column -->
+    <ng-container matColumnDef="REF_CATASTRAL">
+      <th mat-header-cell *matHeaderCellDef>REF_CATASTRAL</th>
+      <td mat-cell *matCellDef="let element"> {{element.REF_CATASTRAL}} </td>
+    </ng-container>
+    
+    <!-- No_RESOLUCION Column -->
+    <ng-container matColumnDef="No_RESOLUCION">
+      <th mat-header-cell *matHeaderCellDef> No_RESOLUCION  </th>
+      <td mat-cell *matCellDef="let element"> {{element.No_RESOLUCION}} </td>
+    </ng-container>
+
+    <!-- No_EXPEDIENTE Column -->
+    <ng-container matColumnDef="No_EXPEDIENTE">
+        <th mat-header-cell *matHeaderCellDef> No_EXPEDIENTE </th>
+        <td mat-cell *matCellDef="let element"> {{element.No_EXPEDIENTE}} </td>
+      </ng-container>
+
+    <!-- FECHA Column -->
+    <ng-container matColumnDef="FECHA">
+        <th mat-header-cell *matHeaderCellDef> FECHA </th>
+        <td mat-cell *matCellDef="let element"> {{element.FECHA}} </td>
+      </ng-container>
+
+
+    <!-- VIG_DETERMINADAS Column -->
+    <ng-container matColumnDef="VIG_DETERMINADAS">
+        <th mat-header-cell *matHeaderCellDef> VIG_DETERMINADAS </th>
+        <td mat-cell *matCellDef="let element"> {{element.VIG_DETERMINADAS}} </td>
+      </ng-container>
+
+    <!-- NOTIFICADO_DEVUELTO Column -->
+    <ng-container matColumnDef="NOTIFICADO_DEVUELTO">
+        <th mat-header-cell *matHeaderCellDef> NOTIFICADO_DEVUELTO </th>
+        <td mat-cell *matCellDef="let element"> {{ element.NOTIFICADO_DEVUELTO }} </td>
+      </ng-container>
+
+      <!-- BUSQUEDA Column -->
+    <ng-container matColumnDef="BUSQUEDA">
+        <th mat-header-cell *matHeaderCellDef> BUSQUEDA </th>
+        <td mat-cell *matCellDef="let element"> {{element.BUSQUEDA}} </td>
+      </ng-container>
+  
+    <!-- TOTAL_DETERMINADO Column -->
+    <ng-container matColumnDef="TOTAL_DETERMINADO">
+        <th mat-header-cell *matHeaderCellDef> TOTAL_DETERMINADO </th>
+        <td mat-cell *matCellDef="let element"> {{element.TOTAL_DETERMINADO}} </td>
+      </ng-container>
+  
+    
+    
+
+    <!-- Accion Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <!-- Accion Column 
+      <button mat-flat-button color="warn" (click)="onDelete(element.id)" routerLink="/menu/runoydos" *ngIf = "identity == 'ARCHIVO_DETERMINACION' ">
+        Borrar
+        <mat-icon>delete</mat-icon>
+      </button>
+      -->
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+    
+  </table>

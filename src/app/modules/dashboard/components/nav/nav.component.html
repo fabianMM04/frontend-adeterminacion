@@ -15,6 +15,12 @@
       <a mat-list-item routerLink="/menu/scontribuyente" *ngIf = "identity == 'CONTRIBUYENTE' || identity == 'RECEPCIONISTA'">SOLICITUD CONTRIBUYENTE</a>
       <a mat-list-item routerLink="/menu/sabogado" *ngIf = "identity == 'ABOGADO'">SOLICITUD ABOGADO</a>
       <a mat-list-item routerLink="/menu/sarchivo" *ngIf = "identity == 'ARCHIVO_DETERMINACION'">SOLICITUD ARCHIVO</a>
+      <a mat-list-item routerLink="/menu/historicos" *ngIf = "identity == 'ARCHIVO_DETERMINACION'">HISTORICO</a>
+      <a mat-list-item routerLink="/menu/historicosseisonce" *ngIf = "identity == 'ARCHIVO_DETERMINACION'">HISTORICO 2006-2011</a>
+      <a mat-list-item routerLink="/menu/historicosocho" *ngIf = "identity == 'ARCHIVO_DETERMINACION'">HISTORICO 2008</a>
+
+
+
 
     </mat-nav-list>
   </mat-sidenav>

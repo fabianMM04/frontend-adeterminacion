@@ -11,6 +11,10 @@ import { ScontribuyenteComponent } from './components/scontribuyente/scontribuye
 import { SabogadoComponent } from './components/sabogado/sabogado.component';
 import { SarchivoComponent } from './components/sarchivo/sarchivo.component';
 import { NmensajeriaComponent } from './components/nmensajeria/nmensajeria.component';
+import { HistoricoComponent } from './components/historico/historico.component';
+import { HistoricoseisonceComponent } from './components/historicoseisonce/historicoseisonce.component';
+import { HistoricoochoComponent } from './components/historicoocho/historicoocho.component';
+
 import { AuthGuard } from '../../services/authguard';
 
 
@@ -28,6 +32,11 @@ const routes: Routes = [
     {path: 'sabogado', component: SabogadoComponent},
     {path: 'sarchivo', component: SarchivoComponent},
     {path: 'nmensajeria', component: NmensajeriaComponent},
+    {path: 'historicos', component: HistoricoComponent},
+    {path: 'historicosseisonce', component: HistoricoseisonceComponent},
+    {path: 'historicosocho', component: HistoricoochoComponent},
+
+    
     
   ]
 },

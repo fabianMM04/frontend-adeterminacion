@@ -37,8 +37,11 @@ import { SarchivoformComponent } from './components/sarchivoform/sarchivoform.co
 import { ScontribuyenteformComponent } from './components/scontribuyenteform/scontribuyenteform.component';
 import { NmensajeriaComponent } from './components/nmensajeria/nmensajeria.component';
 import { NmensajeriaformComponent } from './components/nmensajeriaform/nmensajeriaform.component';
+import { HistoricoComponent } from './components/historico/historico.component';
+import { HistoricoseisonceComponent } from './components/historicoseisonce/historicoseisonce.component';
+import { HistoricoochoComponent } from './components/historicoocho/historicoocho.component';
 @NgModule({
-  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent],
+  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent, HistoricoComponent, HistoricoseisonceComponent, HistoricoochoComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
