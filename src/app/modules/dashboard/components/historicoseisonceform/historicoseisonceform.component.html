@@ -1,0 +1,44 @@
+<mat-dialog-content>
+<form class="container" [formGroup]="mandamientoformGroup" (ngSubmit)="onSaveForm()">
+    
+    <mat-form-field>
+        <input matInput placeholder="reolucion_no" formControlName="reolucion_no" value="{{ this.mandamientopagoSerive.selected.reolucion_no}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.mandamientopagoSerive.selected.no_expediente}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.mandamientopagoSerive.selected.fecha |  date:'short' }}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.mandamientopagoSerive.selected.direccion}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.mandamientopagoSerive.selected.ciudad}}" >
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.mandamientopagoSerive.selected.referencia_catastral}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.mandamientopagoSerive.selected.propietario}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.mandamientopagoSerive.selected.vigencias |  date:'short' }}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="valor" formControlName="valor" value="{{ this.mandamientopagoSerive.selected.valor}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="mandamiento_no" formControlName="mandamiento_no" value="{{ this.mandamientopagoSerive.selected.mandamiento_no}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.mandamientopagoSerive.selected.notificacion}}">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="cedula" formControlName="cedula" value="{{ this.nmensajeriaService.selected.cedula}}">
+    </mat-form-field>
+    <button mat-flat-button color="primary" type="submit">
+        <mat-icon>save</mat-icon>Guardar
+    </button>
+</form>
+</mat-dialog-content>

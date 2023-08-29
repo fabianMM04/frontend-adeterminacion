@@ -5,7 +5,15 @@
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   
-    
+    <!-- new Column -->
+    <ng-container matColumnDef="new">
+      <th mat-header-cell *matHeaderCellDef>
+        <button mat-flat-button color="primary" (click)="onEdit()">
+        Agregar
+        <mat-icon>save</mat-icon>
+      </button></th>
+      <td mat-cell *matCellDef="let element"></td>
+    </ng-container>
 
     <!-- REF_CATASTRAL Column -->
     <ng-container matColumnDef="REF_CATASTRAL">
