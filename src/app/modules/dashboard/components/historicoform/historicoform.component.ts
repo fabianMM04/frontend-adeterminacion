@@ -33,48 +33,36 @@ export class HistoricoformComponent implements OnInit {
 
     let update = {}
     let datos= this.historicoformGroup.value;
-    if (datos.ciudad == ""){
-      delete datos['ciudad']
+    if (datos.No_EXPEDIENTE == ""){
+      delete datos['No_EXPEDIENTE']
     }
-    if (datos.direccion == ""){
-      delete datos['direccion']
+    if (datos.REF_CATASTRAL == ""){
+      delete datos['REF_CATASTRAL']
     }
-    if (datos.fecha == ""){
-      delete datos['fecha']
+    if (datos.No_RESOLUCION == ""){
+      delete datos['No_RESOLUCION']
     }
-    if (datos.mandamiento_no == ""){
-      delete datos['mandamiento_no']
+    if (datos.FECHA == ""){
+      delete datos['FECHA']
     }
-    if (datos.no_expediente == ""){
-      delete datos['no_expediente']
+    if (datos.VIG_DETERMINADAS == ""){
+      delete datos['VIG_DETERMINADAS']
     }
-    if (datos.notificacion == ""){
-      delete datos['notificacion']
+    if (datos.NOTIFICADO_DEVUELTO == ""){
+      delete datos['NOTIFICADO_DEVUELTO']
     }
-    if (datos.propietario == ""){
-      delete datos['propietario']
+    if (datos.BUSQUEDA == ""){
+      delete datos['BUSQUEDA']
     }
-    if (datos.referencia_catastral == ""){
-      delete datos['referencia_catastral']
-    }
-    if (datos.reolucion_no == ""){
-      delete datos['reolucion_no']
-    }
-    if (datos.valor == ""){
-      delete datos['valor']
-    }
-    if (datos.vigencias == ""){
-      delete datos['vigencias']
-    }
-    if (datos.cedula == ""){
-      delete datos['cedula']
+    if (datos.TOTAL_DETERMINADO == ""){
+      delete datos['TOTAL_DETERMINADO']
     }
     
-    this.mandamientopagoSerive.edit_mandamientopago(this.mandamientopagoSerive.selected._id, datos).subscribe(
+    this.historicoSerive.edit_historico(this.historicoSerive.selected._id, datos).subscribe(
       resp => {
         console.log(resp)
         this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-        this.router.navigate(["/menu/mandamientopago"]));
+        this.router.navigate(["/menu/historicos"]));
       }
     );
     }
@@ -82,20 +70,15 @@ export class HistoricoformComponent implements OnInit {
   }
 
   initForm(){
-    this.mandamientoformGroup = new FormGroup({
-      reolucion_no: new FormControl(''),
-      no_expediente: new FormControl(''),
-      fecha: new FormControl(''),
-      direccion: new FormControl(''),
-      ciudad: new FormControl(''),
-      referencia_catastral: new FormControl(''),
-      propietario: new FormControl(''),
-      vigencias: new FormControl(''),
-      valor: new FormControl(''),
-      mandamiento_no: new FormControl(''),
-      notificacion: new FormControl(''),
-      cedula: new FormControl(''),
-
+    this.historicoformGroup = new FormGroup({
+      REF_CATASTRAL: new FormControl(''),
+      No_RESOLUCION: new FormControl(''),
+      No_EXPEDIENTE: new FormControl(''),
+      FECHA: new FormControl(''),
+      VIG_DETERMINADAS: new FormControl(''),
+      NOTIFICADO_DEVUELTO: new FormControl(''),
+      BUSQUEDA: new FormControl(''),
+      TOTAL_DETERMINADO: new FormControl(''),
     })
   }
 
