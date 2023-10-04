@@ -1,41 +1,38 @@
 <mat-dialog-content>
-<form class="container" [formGroup]="mandamientoformGroup" (ngSubmit)="onSaveForm()">
+<form class="container" [formGroup]="historicoseisonceformGroup" (ngSubmit)="onSaveForm()">
     
     <mat-form-field>
-        <input matInput placeholder="reolucion_no" formControlName="reolucion_no" value="{{ this.mandamientopagoSerive.selected.reolucion_no}}">
+        <input matInput placeholder="REFERENCIA" formControlName="REFERENCIA" value="{{ this.historicoseisonceService.selected.REFERENCIA}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="no_expediente" formControlName="no_expediente" value="{{ this.mandamientopagoSerive.selected.no_expediente}}">
+        <input matInput placeholder="REF_CATASTRAL" formControlName="REF_CATASTRAL" value="{{ this.historicoseisonceService.selected.REF_CATASTRAL}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="fecha" formControlName="fecha" value="{{ this.mandamientopagoSerive.selected.fecha |  date:'short' }}">
+        <input matInput placeholder="FECHA" formControlName="FECHA" value="{{ this.historicoseisonceService.selected.FECHA |  date:'short' }}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="direccion" formControlName="direccion" value="{{ this.mandamientopagoSerive.selected.direccion}}">
+        <input matInput placeholder="No_RESOLUCION" formControlName="No_RESOLUCION" value="{{ this.historicoseisonceService.selected.No_RESOLUCION}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="ciudad" formControlName="ciudad" value="{{ this.mandamientopagoSerive.selected.ciudad}}" >
+        <input matInput placeholder="No_EXPEDIENTE" formControlName="No_EXPEDIENTE" value="{{ this.historicoseisonceService.selected.No_EXPEDIENTE}}" >
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="referencia_catastral" formControlName="referencia_catastral" value="{{ this.mandamientopagoSerive.selected.referencia_catastral}}">
+        <input matInput placeholder="VIG_DETERMINADAS" formControlName="VIG_DETERMINADAS" value="{{ this.historicoseisonceService.selected.VIG_DETERMINADAS}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="propietario" formControlName="propietario" value="{{ this.mandamientopagoSerive.selected.propietario}}">
+        <input matInput placeholder="GRUPO" formControlName="GRUPO" value="{{ this.historicoseisonceService.selected.GRUPO}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="vigencias" formControlName="vigencias" value="{{ this.mandamientopagoSerive.selected.vigencias |  date:'short' }}">
+        <input matInput placeholder="NOTIFICADO_DEVUELTO" formControlName="NOTIFICADO_DEVUELTO" value="{{ this.historicoseisonceService.selected.NOTIFICADO_DEVUELTO}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="valor" formControlName="valor" value="{{ this.mandamientopagoSerive.selected.valor}}">
+        <input matInput placeholder="BUSQUEDA" formControlName="BUSQUEDA" value="{{ this.historicoseisonceService.selected.BUSQUEDA}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="mandamiento_no" formControlName="mandamiento_no" value="{{ this.mandamientopagoSerive.selected.mandamiento_no}}">
+        <input matInput placeholder="TOTAL_DETERMINADO" formControlName="TOTAL_DETERMINADO" value="{{ this.historicoseisonceService.selected.TOTAL_DETERMINADO}}">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="notificacion" formControlName="notificacion" value="{{ this.mandamientopagoSerive.selected.notificacion}}">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="cedula" formControlName="cedula" value="{{ this.nmensajeriaService.selected.cedula}}">
+        <input matInput placeholder="NO_IMAGE_SCANED" formControlName="NO_IMAGE_SCANED" value="{{ this.historicoseisonceService.selected.NO_IMAGE_SCANED}}">
     </mat-form-field>
     <button mat-flat-button color="primary" type="submit">
         <mat-icon>save</mat-icon>Guardar

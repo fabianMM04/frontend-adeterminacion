@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MandamientopagoformComponent } from './historicoseisonceform.component';
+import { HistoricoseisonceformComponent } from './historicoseisonceform.component';
 
-describe('MandamientopagoformComponent', () => {
-  let component: MandamientopagoformComponent;
-  let fixture: ComponentFixture<MandamientopagoformComponent>;
+describe('HistoricoseisonceformComponent', () => {
+  let component: HistoricoseisonceformComponent;
+  let fixture: ComponentFixture<HistoricoseisonceformComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MandamientopagoformComponent ]
+      declarations: [ HistoricoseisonceformComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MandamientopagoformComponent);
+    fixture = TestBed.createComponent(HistoricoseisonceformComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
