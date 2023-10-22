@@ -14,6 +14,8 @@ import {MatTableModule} from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+
 
 import { RconvenioComponent } from './components/rconvenio/rconvenio.component';
 import { NembargoComponent } from './components/nembargo/nembargo.component';
@@ -38,10 +40,16 @@ import { ScontribuyenteformComponent } from './components/scontribuyenteform/sco
 import { NmensajeriaComponent } from './components/nmensajeria/nmensajeria.component';
 import { NmensajeriaformComponent } from './components/nmensajeriaform/nmensajeriaform.component';
 import { HistoricoComponent } from './components/historico/historico.component';
+import { HistoricoformComponent } from './components/historicoform/historicoform.component';
+
 import { HistoricoseisonceComponent } from './components/historicoseisonce/historicoseisonce.component';
+import { HistoricoseisonceformComponent } from './components/historicoseisonceform/historicoseisonceform.component';
+
 import { HistoricoochoComponent } from './components/historicoocho/historicoocho.component';
+import { HistoricoochoformComponent } from './components/historicoochoform/historicoochoform.component';
+
 @NgModule({
-  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent, HistoricoComponent, HistoricoseisonceComponent, HistoricoochoComponent],
+  declarations: [NavComponent, RconvenioComponent, NembargoComponent, MandamientopagoComponent, ResolucionesComponent, RunoydosComponent, RembargoComponent, ScontribuyenteComponent, SarchivoComponent, SabogadoComponent, MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent, HistoricoComponent, HistoricoseisonceComponent, HistoricoochoComponent, HistoricoformComponent, HistoricoseisonceformComponent, HistoricoochoformComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -55,9 +63,10 @@ import { HistoricoochoComponent } from './components/historicoocho/historicoocho
     MatTableModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFileUploadModule
   ],
   providers: [RconvenioService],
-  entryComponents:[MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent]
+  entryComponents:[MandamientopagoformComponent, NembargoformComponent, RconvenioformComponent, RembargoformComponent, ResolucionesformComponent, RunoydosformComponent, SabogadoformComponent, SarchivoformComponent, ScontribuyenteformComponent, NmensajeriaComponent, NmensajeriaformComponent, , HistoricoComponent, HistoricoseisonceComponent, HistoricoochoComponent, HistoricoformComponent, HistoricoseisonceformComponent, HistoricoochoformComponent]
 })
 export class DashboardModule { }
