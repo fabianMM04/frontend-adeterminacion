@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate {
         return false;
     }
     } catch (error) {
-      console.log("erda papa")
       this._router.navigate(['/register']);
         return false;
     }
