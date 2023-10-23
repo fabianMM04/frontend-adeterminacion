@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HistoricoseisonceService } from '../../../../services/historicoseisonce.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { HistoricoseisonceformComponent } from '../historicoseisonceform/historicoseisonceform.component';
+
 
 @Component({
   selector: 'app-historicoseisonce',
@@ -12,8 +14,10 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 })
 export class HistoricoseisonceComponent implements OnInit {
   public identity;
-  displayedColumns: string[] = ['REFERENCIA','REF_CATASTRAL', 'No_RESOLUCION', 'No_EXPEDIENTE', 'FECHA','VIG_DETERMINADAS', 'GRUPO','NOTIFICADO_DEVUELTO', 'BUSQUEDA', 'TOTAL_DETERMINADO', 'NO_IMAGE_SCANED','actions'];
+  displayedColumns: string[] = ['REFERENCIA','REF_CATASTRAL', 'No_RESOLUCION', 'No_EXPEDIENTE', 'FECHA','VIG_DETERMINADAS', 'GRUPO','NOTIFICADO_DEVUELTO', 'BUSQUEDA', 'TOTAL_DETERMINADO', 'NO_IMAGE_SCANED','actions', 'new'];
   dataSource = new MatTableDataSource();
+
+  formGroup: FormGroup;
   constructor( private historicoService: HistoricoseisonceService,
     private route: ActivatedRoute,
     private router: Router,
@@ -30,6 +34,12 @@ export class HistoricoseisonceComponent implements OnInit {
       );
     }
   
+    initForm(){
+      this.formGroup = new FormGroup({
+        filtro: new FormControl(''),
+      })
+    }
+
     ngDoCheck() {
       this.identity = localStorage.getItem('user');
     }
@@ -37,6 +47,14 @@ export class HistoricoseisonceComponent implements OnInit {
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    onEdit(element){
+      this.resetForm();
+      this.openForm();
+      if(element) {
+        this.historicoService.selected = element;
+      }
     }
   
     onDelete(id:string){
@@ -48,6 +66,32 @@ export class HistoricoseisonceComponent implements OnInit {
           this.router.navigate(["/menu/historicosseisonce"]));
         }
       );
+    }
+
+    openForm(): void {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        title: "modal"
+      };
+      dialogConfig.autoFocus = true;
+      
+      this.dialog.open(HistoricoseisonceformComponent, dialogConfig);
+    }
+  
+    resetForm(): void {
+      this.historicoService.selected._id = null;
+      this.historicoService.selected.REF_CATASTRAL = '';
+      this.historicoService.selected.No_RESOLUCION = '';
+      this.historicoService.selected.No_EXPEDIENTE = '';
+      this.historicoService.selected.FECHA = '';
+      this.historicoService.selected.VIG_DETERMINADAS = '';
+      this.historicoService.selected.NOTIFICADO_DEVUELTO = '';
+      this.historicoService.selected.BUSQUEDA = '';
+      this.historicoService.selected.TOTAL_DETERMINADO = '';
+      this.historicoService.selected.REFERENCIA = '';
+      this.historicoService.selected.GRUPO = '';
+      this.historicoService.selected.NO_IMAGE_SCANED = '';
+
     }
 
 }

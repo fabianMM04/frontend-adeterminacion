@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HistoricoochoService } from '../../../../services/historicoocho.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { HistoricoochoformComponent } from '../historicoochoform/historicoochoform.component';
 
 @Component({
   selector: 'app-historicoocho',
@@ -13,8 +14,10 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 export class HistoricoochoComponent implements OnInit {
 
   public identity;
-  displayedColumns: string[] = ['REF_CATASTRAL_1', 'REF_CATASTRAL_2','No_RESOLUCION', 'No_EXPEDIENTE', 'FECHA','VIG_DETERMINADAS', 'HOJA','NOTIFICADO_DEVUELTO', 'TOTAL_DETERMINADO', 'actions'];
+  displayedColumns: string[] = ['REF_CATASTRAL_1', 'REF_CATASTRAL_2','No_RESOLUCION', 'No_EXPEDIENTE', 'FECHA','VIG_DETERMINADAS', 'HOJA','NOTIFICADO_DEVUELTO', 'TOTAL_DETERMINADO', 'actions', 'new'];
   dataSource = new MatTableDataSource();
+
+  formGroup: FormGroup;
   constructor( private historicoService: HistoricoochoService,
     private route: ActivatedRoute,
     private router: Router,
@@ -30,6 +33,12 @@ export class HistoricoochoComponent implements OnInit {
       
       );
     }
+
+    initForm(){
+      this.formGroup = new FormGroup({
+        filtro: new FormControl(''),
+      })
+    }
   
     ngDoCheck() {
       this.identity = localStorage.getItem('user');
@@ -38,6 +47,14 @@ export class HistoricoochoComponent implements OnInit {
     applyFilter(event: Event) {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();
+    }
+
+    onEdit(element){
+      this.resetForm();
+      this.openForm();
+      if(element) {
+        this.historicoService.selected = element;
+      }
     }
   
     onDelete(id:string){
@@ -50,6 +67,29 @@ export class HistoricoochoComponent implements OnInit {
         }
       );
     }
+
+    
+    openForm(): void {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = {
+        title: "modal"
+      };
+      dialogConfig.autoFocus = true;
+      
+      this.dialog.open(HistoricoochoformComponent, dialogConfig);
+    }
   
+    resetForm(): void {
+      this.historicoService.selected._id = null;
+      this.historicoService.selected.REF_CATASTRAL_1 = '';
+      this.historicoService.selected.REF_CATASTRAL_2 = '';
+      this.historicoService.selected.No_RESOLUCION = '';
+      this.historicoService.selected.No_EXPEDIENTE = '';
+      this.historicoService.selected.FECHA = '';
+      this.historicoService.selected.VIG_DETERMINADAS = '';
+      this.historicoService.selected.NOTIFICADO_DEVUELTO = '';
+      this.historicoService.selected.HOJA = '';
+      this.historicoService.selected.TOTAL_DETERMINADO = '';
+    }
 
 }
