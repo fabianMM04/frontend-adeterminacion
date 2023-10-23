@@ -34,7 +34,7 @@ export class HistoricoService {
             
     });
 
-    return this.http.post(this.url + 'hitoricos', params, { headers: headers });
+    return this.http.post(this.url + 'historicos', params, { headers: headers });
 
 }
 list_historico(): Observable<any> {
